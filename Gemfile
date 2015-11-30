@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Bootstrap for styling
 gem 'bootstrap-sass'
 
+# Use Devise for authentication
+gem 'devise'
+
 group :production do
   gem 'pg'
 end
