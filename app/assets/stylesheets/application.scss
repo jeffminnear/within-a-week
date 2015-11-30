@@ -16,3 +16,32 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#user-login-controls {
+  background-color: #B7ECFD;
+  border: solid grey 2px;
+  border-radius: .5em;
+  padding: 2px;
+  text-align: right;
+  list-style-type: none;
+}
+
+.navbar-link {
+  background-color: silver;
+  border-radius: .4em;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  color: white;
+  background-color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
