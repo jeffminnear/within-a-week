@@ -53,6 +53,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver' # For Firefox
   # gem 'chromedriver-helper' # Install to use Chrome in feature specs
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do

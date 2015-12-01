@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe WelcomeController, type: :controller do
-
-  describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
-  end
+  let(:my_user)   { create(:user) }
 
   describe "GET #about" do
+    before do
+      my_user.confirm
+      sign_in(my_user)
+    end
+
     it "returns http success" do
       get :about
       expect(response).to have_http_status(:success)
