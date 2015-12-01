@@ -38,6 +38,8 @@ gem 'bootstrap-sass'
 # Use Devise for authentication
 gem 'devise'
 
+gem 'figaro', '1.0'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
