@@ -6,7 +6,7 @@ feature "User registers" do
 
     visit "/"
 
-    click_link "Sign up"
+    click_link "Sign Up"
     expect(current_path).to eq(new_user_registration_path)
 
     fill_in "Email", with: "tester@example.tld"
@@ -14,7 +14,7 @@ feature "User registers" do
     fill_in "Password confirmation", with: "test-password"
     click_button "Sign up"
 
-    expect(current_path).to eq "/users/sign_in"
+    expect(current_path).to eq "/"
     expect(page).to have_content(
       "A message with a confirmation link has been sent to your email address.
       Please follow the link to activate your account."
@@ -32,6 +32,6 @@ feature "User registers" do
 
     expect(current_path).to eq "/"
     expect(page).to have_content "Signed in successfully."
-    expect(page).to have_content "Hello, tester@example.tld"
+    expect(page).to have_content "Signed in as: tester@example.tld"
   end
 end
