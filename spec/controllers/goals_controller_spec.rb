@@ -9,11 +9,6 @@ RSpec.describe GoalsController, type: :controller do
       sign_in(my_user)
     end
 
-    it "returns http success" do
-      post :create, user_id: my_user.id, goal: { name: RandomData.random_goal }
-      expect(response).to have_http_status(:success)
-    end
-
     it "adds a new goal for the current user" do
       goals_size = Goal.where(user_id: my_user.id).length
       post :create, user_id: my_user.id, goal: { name: RandomData.random_goal }
@@ -29,6 +24,11 @@ RSpec.describe GoalsController, type: :controller do
       post :create, user_id: my_user.id, goal: { name: "do the laundry" }
       my_goal = my_user.goals.first
       expect(my_goal.name).to eq("do the laundry")
+    end
+
+    it "redirects to user #show page" do
+      post :create, user_id: my_user.id, goal: { name: RandomData.random_goal }
+      expect(response).to redirect_to(user_path(my_user.id))
     end
   end
 end
