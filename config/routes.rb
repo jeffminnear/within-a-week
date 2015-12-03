@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'goals/create'
+
   devise_for :users
 
   resources :users, only: :show do
