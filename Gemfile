@@ -66,4 +66,5 @@ end
 
 group :test do
   gem 'email_spec'
+  gem 'database_cleaner'
 end
