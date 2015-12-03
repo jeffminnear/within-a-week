@@ -1,6 +1,6 @@
 module RandomData
 
-  def random_task
+  def random_goal
     words = []
     rand(1..4).times do
       words << random_word

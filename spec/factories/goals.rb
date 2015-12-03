@@ -1,7 +1,8 @@
+include RandomData
+
 FactoryGirl.define do
   factory :goal do
-    name "MyString"
-user nil
+    name RandomData.random_goal
+    user
   end
-
 end

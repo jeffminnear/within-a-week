@@ -5,7 +5,6 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #show" do
     before do
-      my_user.confirm
       sign_in(my_user)
     end
 
@@ -24,5 +23,4 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(my_user)
     end
   end
-
 end
