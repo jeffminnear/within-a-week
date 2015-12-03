@@ -45,3 +45,15 @@
 a:hover {
   text-decoration: none;
 }
+
+.row {
+  margin-left: 0;
+}
+
+.goal {
+  width: 50%;
+  border: solid 1px darkgrey;
+  background-color: lightgrey;
+  border-radius: .5em;
+  padding: 2px;
+}
