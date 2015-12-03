@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-feature "User registers" do
+feature "User registers", js: true do
 
   scenario "with valid details" do
 
     visit "/"
 
     click_link "Sign Up"
+    expect(page).to have_css "h2", text: "Sign up"
     expect(current_path).to eq(new_user_registration_path)
 
     fill_in "Email", with: "tester@example.tld"
