@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
     @user = current_user
     @goal = @user.goals.build(goal_params)
 
-    if @goal.save!
+    if @goal.save
       flash[:notice] = "Goal saved"
       redirect_to user_path(@user.id)
     else
