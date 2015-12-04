@@ -1,23 +1,19 @@
 module RandomData
 
   def random_goal
-    words = []
-    rand(1..4).times do
-      words << random_word
-    end
-    words.join(' ')
+    goal = Faker::Hipster.sentence(rand(2..4))
   end
 
   def random_password
-    password = "#{random_word(rand(8..12))}"
+    password = Faker::Internet.password(8, 12)
   end
 
   def random_email
-    email = "#{random_word}@#{random_word}.#{random_word(3)}"
+    email = Faker::Internet.email
   end
 
   def random_name
-    name = "#{random_word.capitalize} #{random_word.capitalize}"
+    name = Faker::Name.name
   end
 
   def random_word(length = nil)
