@@ -1,5 +1,9 @@
 module RandomData
 
+  def random_time
+    time = Faker::Time.backward(60)
+  end
+
   def random_goal
     goal = Faker::Hipster.sentence(rand(2..4))
   end
