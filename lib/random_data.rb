@@ -1,26 +1,26 @@
 module RandomData
 
-  def random_time
+  def self.random_time
     time = Faker::Time.backward(60)
   end
 
-  def random_goal
+  def self.random_goal
     goal = Faker::Hipster.sentence(rand(2..4))
   end
 
-  def random_password
+  def self.random_password
     password = Faker::Internet.password(8, 12)
   end
 
-  def random_email
+  def self.random_email
     email = Faker::Internet.email
   end
 
-  def random_name
+  def self.random_name
     name = Faker::Name.name
   end
 
-  def random_word(length = nil)
+  def self.random_word(length = nil)
     letters = ('a'..'z').to_a
     letters.shuffle!
     if length

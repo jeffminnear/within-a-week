@@ -1,5 +1,3 @@
-include RandomData
-
 FactoryGirl.define do
   factory :user do
     email         RandomData.random_email

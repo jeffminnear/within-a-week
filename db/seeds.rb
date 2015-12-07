@@ -1,5 +1,3 @@
-include RandomData
-
 # Create Users
 20.times do
   user = User.create!(

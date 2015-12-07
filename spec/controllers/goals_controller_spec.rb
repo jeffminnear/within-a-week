@@ -1,5 +1,4 @@
 require 'rails_helper'
-include RandomData
 
 RSpec.describe GoalsController, type: :controller do
   let(:my_user)   { create(:user) }
