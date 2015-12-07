@@ -5,7 +5,7 @@
         <%= goal.name %>
       </h4>
       <%= link_to "Completed", goal, method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
-      <small>added <%= goal.created_at.to_s(:long_ordinal) %></small>
+      <small><%= time_left_until_expires(goal) %></small>
     </div>
   </div>
 </div>
