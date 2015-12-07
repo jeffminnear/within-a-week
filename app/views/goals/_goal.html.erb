@@ -5,7 +5,7 @@
         <%= goal.name %>
       </h4>
       <%= link_to "Completed", goal, method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
-      <small><%= time_left_until_expires(goal) %></small>
+      <small><%= time_left_to_complete(goal) %> left to complete</small>
     </div>
   </div>
 </div>
