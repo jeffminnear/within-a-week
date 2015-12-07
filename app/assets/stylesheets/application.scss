@@ -54,6 +54,19 @@ a:hover {
   width: 50%;
   border: solid 1px darkgrey;
   background-color: lightgrey;
+  color: ghostwhite;
   border-radius: .5em;
   padding: 2px;
+}
+
+.goal-ok {
+  background-color: #5CB85C;
+}
+
+.goal-warning {
+  background-color: #ED6D0C;
+}
+
+.goal-danger {
+  background-color: #E51818;
 }
