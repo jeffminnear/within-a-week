@@ -5,7 +5,7 @@ module GoalsHelper
   end
 
   def urgency(goal)
-    time_elapsed = (Time.now - goal.created_at) / 86400
+    time_elapsed = (Time.now - goal.created_at) / 1.day
     if time_elapsed > 6
       return "danger"
     elsif time_elapsed > 4
