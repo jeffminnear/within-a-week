@@ -15,10 +15,12 @@ class GoalsController < ApplicationController
   def destroy
     @goal = Goal.find(params[:id])
 
-    if @goal.destroy
-      flash[:notice] = "Goal completed successfully!"
-    else
-      flash[:error] = "There was an error marking your goal completed."
+    if current_user == @goal.user
+      if @goal.destroy
+        flash[:notice] = "Goal completed successfully!"
+      else
+        flash[:error] = "There was an error marking your goal completed."
+      end
     end
 
     respond_to do |format|

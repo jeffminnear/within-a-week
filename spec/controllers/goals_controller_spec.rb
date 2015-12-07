@@ -32,6 +32,16 @@ RSpec.describe GoalsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
+    it "responds with http status 200 ok" do
+      user = create(:user)
+      goal = create(:goal, user: user)
+
+      sign_in(user)
+
+      delete :destroy, format: :js, id: goal.id
+      expect(response).to have_http_status(200)
+    end
+
     it "deletes the expected goal" do
       user = create(:user)
       goal = create(:goal, user: user)
@@ -40,14 +50,50 @@ RSpec.describe GoalsController, type: :controller do
 
       delete :destroy, format: :js, id: goal.id
       expect(Goal.count).to eq(0)
-
     end
 
-    xit "does not delete goal belonging to another user"
-    xit "deletes only the expected goal"
-    xit "sets the successful flash message"
-    xit "responds with http status 200 ok"
+    it "deletes only the expected goal" do
+      user = create(:user)
+      goal = create(:goal, user: user)
+      second_goal = create(:goal, user: user)
+
+      sign_in(user)
+
+      delete :destroy, format: :js, id: goal.id
+      expect(Goal.count).to eq(1)
+    end
+
+    it "does not delete goal belonging to another user" do
+      user = create(:user)
+      goal = create(:goal, user: user)
+      other_user = create(:user, email: "someone.else@gmail.com")
+
+      sign_in(other_user)
+
+      delete :destroy, format: :js, id: goal.id
+      expect(Goal.count).to eq(1)
+    end
+
+    xit "sets the successful flash message" do
+      user = create(:user)
+      goal = create(:goal, user: user)
+
+      sign_in(user)
+
+      delete :destroy, format: :js, id: goal.id
+      expect(page).to have_content("Goal completed successfully!")
+    end
+
+    xit "responds with http status 404 not found for unkown goal" do
+      user = create(:user)
+      goal = create(:goal, user: user)
+
+      sign_in(user)
+
+      delete :destroy, format: :js, id: 2
+      expect(response).to have_http_status(404)
+    end
+
     xit "failing to destroy sets the error message"
-    xit "responds with http status 404 not found for unkown goal"
   end
 end
