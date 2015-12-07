@@ -1,7 +1,7 @@
 module RandomData
 
   def self.random_time
-    time = Faker::Time.backward(60)
+    time = Faker::Time.backward(10)
   end
 
   def self.random_goal
