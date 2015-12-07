@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :goals, only: :create
   end
 
+  resources :goals, only: :destroy
+
   get '/about', to: 'welcome#about'
 
   root to: 'welcome#index'

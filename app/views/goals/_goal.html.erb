@@ -1,9 +1,10 @@
-<div class="media">
+<div id="goal-<%= goal.id %>" class="media">
   <div class="media-body">
     <div class="goal">
       <h4 class="media-heading">
         <%= goal.name %>
       </h4>
+      <%= link_to "Completed", goal, method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
       <small>added <%= goal.created_at.to_s(:long_ordinal) %></small>
     </div>
   </div>

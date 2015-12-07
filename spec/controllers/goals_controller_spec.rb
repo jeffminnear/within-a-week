@@ -30,4 +30,24 @@ RSpec.describe GoalsController, type: :controller do
       expect(response).to redirect_to(user_path(my_user.id))
     end
   end
+
+  describe "DELETE #destroy" do
+    it "deletes the expected goal" do
+      user = create(:user)
+      goal = create(:goal, user: user)
+
+      sign_in(user)
+
+      delete :destroy, format: :js, id: goal.id
+      expect(Goal.count).to eq(0)
+
+    end
+
+    xit "does not delete goal belonging to another user"
+    xit "deletes only the expected goal"
+    xit "sets the successful flash message"
+    xit "responds with http status 200 ok"
+    xit "failing to destroy sets the error message"
+    xit "responds with http status 404 not found for unkown goal"
+  end
 end
