@@ -66,7 +66,7 @@ RSpec.describe GoalsController, type: :controller do
     it "does not delete goal belonging to another user" do
       user = create(:user)
       goal = create(:goal, user: user)
-      other_user = create(:user, email: "someone.else@gmail.com")
+      other_user = create(:user)
 
       sign_in(other_user)
 

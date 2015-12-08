@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :goal do
-    name RandomData.random_goal
+    name { RandomData.random_goal }
     user
   end
 end
