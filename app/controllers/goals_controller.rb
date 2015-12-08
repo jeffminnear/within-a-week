@@ -1,26 +1,29 @@
 class GoalsController < ApplicationController
+  NO_GOAL_EXCEPTION = "A goal with that ID does not exist in the current context"
+
   def create
-    @user = current_user
-    @goal = @user.goals.build(goal_params)
+    @goal = current_user.goals.build(goal_params)
 
     if @goal.save
       flash[:notice] = "Goal saved"
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id)
     else
       flash[:error] = "There was an error saving your goal"
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id)
     end
   end
 
   def destroy
-    @goal = Goal.find(params[:id])
+    @goal = current_user.goals.find(params[:id])
 
-    if current_user == @goal.user
-      if @goal.destroy
-        flash[:notice] = "Goal completed successfully!"
-      else
-        flash[:error] = "There was an error marking your goal completed."
-      end
+    if !@goal
+      flash[:error] = NO_GOAL_EXCEPTION
+    end
+
+    if @goal.destroy
+      flash[:notice] = "Goal completed successfully!"
+    else
+      flash[:error] = "There was an error marking your goal completed."
     end
 
     respond_to do |format|

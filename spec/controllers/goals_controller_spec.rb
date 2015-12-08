@@ -63,30 +63,30 @@ RSpec.describe GoalsController, type: :controller do
       expect(Goal.count).to eq(1)
     end
 
-    it "does not delete goal belonging to another user" do
+    xit "does not delete goal belonging to another user" do
       user = create(:user)
       goal = create(:goal, user: user)
       other_user = create(:user)
+      NO_GOAL_EXCEPTION = "A goal with that ID does not exist in the current context"
 
       sign_in(other_user)
 
       delete :destroy, format: :js, id: goal.id
-      expect(Goal.count).to eq(1)
+      expect(flash[:error]).to eq(NO_GOAL_EXCEPTION)
     end
 
-    xit "sets the successful flash message" do
+    it "sets the successful flash message" do
       user = create(:user)
       goal = create(:goal, user: user)
 
       sign_in(user)
 
       delete :destroy, format: :js, id: goal.id
-      expect(page).to have_content("Goal completed successfully!")
+      expect(flash[:notice]).to eq("Goal completed successfully!")
     end
 
     xit "responds with http status 404 not found for unkown goal" do
       user = create(:user)
-      goal = create(:goal, user: user)
 
       sign_in(user)
 
