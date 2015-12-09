@@ -1,2 +1,23 @@
 <h1>WithinAWeek</h1>
 <p>A to-do list app that gives you seven days to complete your tasks</p>
+
+  <% if current_user %>
+    <h3>Click on the <strong>Profile</strong> tab to add or view your weekly goals</h3>
+  <% end %>
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4">
+        <ul id="instructions">
+            <li>Create Goals</li>
+            <li>Mark them Completed</li>
+            <li>They Expire after 7 Days </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div id="screenshot">
+          <%= image_tag("waw-faker") %>
+          <small>Example</small>
+        </div>
+      </div>
+    </div>
+  </div>
