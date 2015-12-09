@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-  NO_GOAL_EXCEPTION = "A goal with that ID does not exist in the current context"
 
   def create
     @goal = current_user.goals.build(goal_params)
@@ -15,10 +14,6 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal = current_user.goals.find(params[:id])
-
-    if !@goal
-      flash[:error] = NO_GOAL_EXCEPTION
-    end
 
     if @goal.destroy
       flash[:notice] = "Goal completed successfully!"
