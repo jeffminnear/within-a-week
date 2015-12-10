@@ -1,4 +1,4 @@
-== README
+## README
 
 WithinAWeek is a self-destructing to-do list app created in Rails
 
