@@ -5,6 +5,7 @@ class GoalsController < ApplicationController
 
     if @goal.save
       flash[:notice] = "Goal saved"
+      flash[:event] = "User Added Goal"
       redirect_to user_path(current_user.id)
     else
       flash[:error] = "There was an error saving your goal"
@@ -17,6 +18,7 @@ class GoalsController < ApplicationController
 
     if @goal.destroy
       flash[:notice] = "Goal completed successfully!"
+      flash[:event] = "User Completed Goal"
     else
       flash[:error] = "There was an error marking your goal completed."
     end
