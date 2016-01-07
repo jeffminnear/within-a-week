@@ -40,6 +40,9 @@
           <%= flash[:error] %>
         </div>
       <% end %>
+      <% if flash[:event] %>
+        <script>doTell.report("<%= flash[:event] %>")</script>
+      <% end %>
     </div>
 
     <%= yield %>
