@@ -57,6 +57,7 @@ group :development, :test do
   # gem 'chromedriver-helper' # Install to use Chrome in feature specs
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda'
+  gem 'pry-rails'
 end
 
 group :development do
