@@ -6,8 +6,11 @@ var doTell = {};
     var event = {event: { name: eventName}};
 
     var request = new XMLHttpRequest();
-    // request.open("POST", "https://do-tell-sir.herokuapp.com/api/events", true);
-    request.open("POST", "http://localhost:3000/api/events", true);
+    // use in production
+    request.open("POST", "https://do-tell-sir.herokuapp.com/api/events", true);
+
+    // use for local testing
+    // request.open("POST", "http://localhost:3000/api/events", true);
 
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify(event));
