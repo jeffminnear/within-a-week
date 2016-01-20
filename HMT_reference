@@ -1,0 +1,15 @@
+class User
+belongs_to :team
+
+class Team
+has_many :users
+has_many :goals, through: :users
+
+
+
+team = Team.find(123)
+team.goals #=> return all goals from all team members
+
+team_goals = team.users.map { |user| user.goals }.flatten
+
+rake db:drop db:create db:migrate

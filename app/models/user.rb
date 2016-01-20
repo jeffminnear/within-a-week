@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
   has_many :goals
+  belongs_to :team
 
   def active_goals
     goals.active
