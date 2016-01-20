@@ -1,0 +1,12 @@
+<h2><%= "Team #{@team.id} Goals" %></h2>
+<br>
+
+<% if @goals.empty? %>
+  <h4>This team has no goals</h4>
+<% else %>
+  <div class="col-md-8">
+    <% @goals.each do |goal| %>
+      <%= render 'goals/goal', goal: goal  %>
+    <% end %>
+  </div>
+<% end %>
